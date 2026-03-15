@@ -1,52 +1,187 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Avanish | Mechanical Engineer</title>
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Mail, Linkedin, Instagram, Download, Wrench, Cpu } from "lucide-react";
+import { motion } from "framer-motion";
 
-<style>
-body{
-font-family:Arial;
-background:black;
-color:white;
-text-align:center;
-padding:40px;
+export default function AvanishPortfolio() {
+
+  const skills = [
+    { name: "Mechanical Design", level: 85 },
+    { name: "CAD / SolidWorks", level: 80 },
+    { name: "CNC Programming", level: 70 },
+    { name: "Production Planning", level: 75 },
+    { name: "Gear Design", level: 78 }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black text-white overflow-x-hidden">
+
+      {/* BACKGROUND GEAR */}
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+        className="absolute right-[-120px] top-40 opacity-10"
+      >
+        <Wrench size={400} />
+      </motion.div>
+
+      {/* HERO */}
+      <section className="max-w-6xl mx-auto px-6 pt-24 pb-20">
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-6xl font-bold"
+        >
+          Avanish
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="mt-5 text-xl text-gray-300 max-w-xl"
+        >
+          Mechanical Engineering Student focused on Design, Manufacturing
+          and Automotive Engineering. Passionate about building real
+          engineering systems from concept to fabrication.
+        </motion.p>
+
+        <div className="flex gap-4 mt-10 flex-wrap">
+          <Button className="flex items-center gap-2">
+            <Download size={16} /> Resume
+          </Button>
+
+          <Button variant="secondary" className="flex gap-2 items-center">
+            <Mail size={16} /> Contact
+          </Button>
+        </div>
+      </section>
+
+
+      {/* ABOUT */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-3xl font-semibold mb-6">About</h2>
+
+        <Card className="bg-gray-900 border-gray-800">
+          <CardContent className="p-6 text-gray-300 leading-relaxed">
+            I am a Mechanical Engineering student at Coimbatore Institute of
+            Technology with strong interest in automotive systems, design
+            engineering and manufacturing technology. I enjoy working on
+            hands‑on engineering projects including go‑kart design,
+            mechanical system development and production simulations.
+          </CardContent>
+        </Card>
+      </section>
+
+
+      {/* SKILLS */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-3xl font-semibold mb-10">Skills</h2>
+
+        <div className="space-y-6">
+          {skills.map((skill) => (
+            <div key={skill.name}>
+              <div className="flex justify-between mb-2 text-sm text-gray-300">
+                <span>{skill.name}</span>
+                <span>{skill.level}%</span>
+              </div>
+
+              <div className="w-full bg-gray-800 h-3 rounded-full">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.level}%` }}
+                  transition={{ duration: 1 }}
+                  className="bg-blue-500 h-3 rounded-full"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+      {/* PROJECTS */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-3xl font-semibold mb-8">Projects</h2>
+
+        <div className="grid md:grid-cols-2 gap-8">
+
+          <Card className="bg-gray-900 border-gray-800 hover:scale-105 transition">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold flex items-center gap-2">
+                <Cpu size={18} /> Go‑Kart Design & Fabrication
+              </h3>
+
+              <p className="text-gray-400 mt-3">
+                Designed and built a racing go‑kart including chassis
+                structure, drivetrain integration and a central shaft
+                braking mechanism.
+              </p>
+            </CardContent>
+          </Card>
+
+
+          <Card className="bg-gray-900 border-gray-800 hover:scale-105 transition">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold flex items-center gap-2">
+                <Cpu size={18} /> Gear Manufacturing Simulation
+              </h3>
+
+              <p className="text-gray-400 mt-3">
+                Developed a simulated gear production workflow based
+                on industrial design parameters and customer
+                requirements.
+              </p>
+            </CardContent>
+          </Card>
+
+        </div>
+      </section>
+
+
+      {/* ACHIEVEMENTS */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-3xl font-semibold mb-6">Achievements</h2>
+
+        <Card className="bg-gray-900 border-gray-800">
+          <CardContent className="p-6 text-gray-300">
+            <ul className="space-y-2 list-disc ml-5">
+              <li>Selected participant – Caterpillar Tech Challenge</li>
+              <li>Led and organized major mechanical department events</li>
+              <li>Hands‑on experience in automotive engineering projects</li>
+            </ul>
+          </CardContent>
+        </Card>
+      </section>
+
+
+      {/* CONTACT */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <h2 className="text-3xl font-semibold mb-6">Contact</h2>
+
+        <div className="flex gap-4 flex-wrap">
+          <Button className="flex items-center gap-2">
+            <Mail size={16} /> Email
+          </Button>
+
+          <Button className="flex items-center gap-2">
+            <Linkedin size={16} /> LinkedIn
+          </Button>
+
+          <Button className="flex items-center gap-2">
+            <Instagram size={16} /> Instagram
+          </Button>
+        </div>
+      </section>
+
+
+      {/* FOOTER */}
+      <footer className="text-center text-gray-500 pb-10">
+        © {new Date().getFullYear()} Avanish | Mechanical Engineering Portfolio
+      </footer>
+
+    </div>
+  );
 }
-
-.card{
-background:#111;
-margin:20px;
-padding:20px;
-border-radius:10px;
-}
-</style>
-
-</head>
-
-<body>
-
-<h1>Avanish</h1>
-<p>Mechanical Engineering Student</p>
-
-<div class="card">
-<h2>About Me</h2>
-<p>I am a Mechanical Engineering student interested in design, manufacturing and automotive engineering.</p>
-</div>
-
-<div class="card">
-<h2>Projects</h2>
-<p>Go-Kart Design and Fabrication</p>
-<p>Gear Manufacturing Simulation</p>
-</div>
-
-<div class="card">
-<h2>Skills</h2>
-<p>SolidWorks | CNC Programming | Production Planning</p>
-</div>
-
-<div class="card">
-<h2>Contact</h2>
-<p>Email: yourmail@gmail.com</p>
-</div>
-
-</body>
-</html>
