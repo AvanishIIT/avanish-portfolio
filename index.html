@@ -10,26 +10,45 @@ body{
 margin:0;
 font-family:Arial;
 color:white;
-background:linear-gradient(-45deg,#020617,#0f172a,#1e293b,#020617);
-background-size:400% 400%;
-animation:bgmove 12s ease infinite;
+background:#020617;
+overflow-x:hidden;
 }
 
-@keyframes bgmove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+/* BACKGROUND GLOW EFFECT */
+
+body::before{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#38bdf8,transparent);
+top:-200px;
+left:-200px;
+opacity:0.15;
+filter:blur(120px);
+}
+
+body::after{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#0ea5e9,transparent);
+bottom:-200px;
+right:-200px;
+opacity:0.15;
+filter:blur(120px);
 }
 
 /* ROTATING GEAR */
 
 .gear{
 position:fixed;
-right:-80px;
-top:120px;
+right:-100px;
+top:150px;
 font-size:260px;
 opacity:0.04;
-animation:spin 20s linear infinite;
+animation:spin 25s linear infinite;
 }
 
 @keyframes spin{
@@ -37,9 +56,11 @@ from{transform:rotate(0deg)}
 to{transform:rotate(360deg)}
 }
 
+/* HEADER */
+
 header{
 text-align:center;
-padding:90px 20px;
+padding:100px 20px;
 }
 
 header h1{
@@ -49,8 +70,9 @@ margin-bottom:10px;
 
 header p{
 color:#94a3b8;
-font-size:18px;
 }
+
+/* BUTTONS */
 
 .button{
 display:inline-block;
@@ -65,9 +87,11 @@ transition:.3s;
 }
 
 .button:hover{
-transform:scale(1.05);
+transform:scale(1.08);
 background:#0ea5e9;
 }
+
+/* CONTENT */
 
 .container{
 max-width:950px;
@@ -75,17 +99,20 @@ margin:auto;
 padding:20px;
 }
 
+/* GLASS CARDS */
+
 .card{
-background:rgba(30,41,59,0.8);
-backdrop-filter:blur(6px);
+background:rgba(30,41,59,0.6);
+backdrop-filter:blur(10px);
 padding:30px;
 margin:30px 0;
-border-radius:10px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,0.05);
 transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 }
 
 h2{
@@ -98,14 +125,14 @@ color:#38bdf8;
 width:100%;
 border-radius:10px;
 margin-top:20px;
-transition:transform .5s;
+transition:.5s;
 }
 
 .kart:hover{
 transform:scale(1.05);
 }
 
-/* SKILL BARS */
+/* SKILLS */
 
 .skill{
 margin:18px 0;
