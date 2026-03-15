@@ -2,15 +2,32 @@
 <html>
 <head>
 
-<title>Avanish | Mechanical Engineer</title>
+<title>Avanish K S| Mechanical Engineer</title>
 
 <style>
 
 body{
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 margin:0;
 background:#0f172a;
 color:white;
+overflow-x:hidden;
+}
+
+/* ROTATING GEAR */
+
+.gear{
+position:fixed;
+right:-120px;
+top:120px;
+font-size:350px;
+opacity:0.05;
+animation:rotateGear 20s linear infinite;
+}
+
+@keyframes rotateGear{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
 }
 
 header{
@@ -26,23 +43,17 @@ margin-bottom:10px;
 
 header p{
 color:#94a3b8;
-font-size:18px;
 }
 
-.linkedin-btn{
+.button{
 display:inline-block;
-margin-top:20px;
-padding:12px 25px;
+margin:10px;
+padding:12px 22px;
 background:#0ea5e9;
 color:white;
 text-decoration:none;
 border-radius:6px;
 font-weight:bold;
-transition:0.3s;
-}
-
-.linkedin-btn:hover{
-background:#0284c7;
 }
 
 .container{
@@ -56,34 +67,51 @@ background:#1e293b;
 padding:30px;
 margin:25px 0;
 border-radius:10px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
 }
 
 h2{
 color:#38bdf8;
-margin-bottom:15px;
 }
 
-.skills span{
-display:inline-block;
+/* SKILL BARS */
+
+.skill{
+margin:15px 0;
+}
+
+.skill-name{
+margin-bottom:5px;
+}
+
+.bar{
 background:#334155;
-padding:10px 14px;
-margin:6px;
-border-radius:6px;
-font-size:14px;
+height:10px;
+border-radius:5px;
 }
 
-.project{
-margin-top:10px;
+.progress{
+height:10px;
+background:#38bdf8;
+border-radius:5px;
+animation:load 2s forwards;
 }
 
-.contact a{
-color:#38bdf8;
-text-decoration:none;
+@keyframes load{
+from{width:0}
+}
+
+/* IMAGE GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:15px;
+}
+
+.gallery img{
+width:100%;
+border-radius:8px;
 }
 
 footer{
@@ -92,11 +120,18 @@ padding:30px;
 color:#94a3b8;
 }
 
+.contact a{
+color:#38bdf8;
+text-decoration:none;
+}
+
 </style>
 
 </head>
 
 <body>
+
+<div class="gear">⚙️</div>
 
 <header>
 
@@ -104,19 +139,17 @@ color:#94a3b8;
 
 <p>Mechanical Engineering Student | Automotive & Design Enthusiast</p>
 
-<a class="linkedin-btn" 
-href="https://www.linkedin.com/in/avanish15" 
-target="_blank">
+<a class="button" href="https://www.linkedin.com/in/avanish15" target="_blank">
+LinkedIn
+</a>
 
-View My LinkedIn
-
+<a class="button" href="resume.pdf" download>
+Download Resume
 </a>
 
 </header>
 
-
 <div class="container">
-
 
 <div class="card">
 
@@ -127,51 +160,62 @@ I am Avanish, a Mechanical Engineering student at Coimbatore Institute of Techno
 </p>
 
 <p>
-I enjoy working on practical engineering projects and developing mechanical solutions. My experience includes designing and building a go-kart, where I worked on chassis structure, drivetrain layout and braking systems.
-</p>
-
-<p>
-I am passionate about learning new technologies in mechanical engineering and continuously improving my design and manufacturing skills.
+I enjoy working on practical engineering projects and developing mechanical solutions. My experience includes designing and building a go-kart focusing on chassis structure, drivetrain layout and braking systems.
 </p>
 
 </div>
-
 
 
 <div class="card">
 
-<h2>Project</h2>
-
-<div class="project">
-
-<h3>Go-Kart Design & Fabrication</h3>
+<h2>Go-Kart Project</h2>
 
 <p>
-Designed and developed a racing go-kart including chassis design, drivetrain integration and braking system configuration. The project focused on structural stability, lightweight design and performance optimization.
+Designed and fabricated a racing go-kart including chassis design, drivetrain integration and braking system configuration with focus on lightweight structure and performance.
 </p>
 
-</div>
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1542367597-8849eb950fd8">
+<img src="https://images.unsplash.com/photo-1621259182978-fbf93132d53d">
+<img src="https://images.unsplash.com/photo-1581091215367-59ab6c4c3f48">
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
 
 </div>
 
+</div>
 
 
 <div class="card">
 
 <h2>Skills</h2>
 
-<div class="skills">
+<div class="skill">
+<div class="skill-name">Mechanical Design</div>
+<div class="bar"><div class="progress" style="width:85%"></div></div>
+</div>
 
-<span>Mechanical Design</span>
-<span>SolidWorks</span>
-<span>AutoCAD</span>
-<span>CNC Programming</span>
-<span>Manufacturing Processes</span>
+<div class="skill">
+<div class="skill-name">SolidWorks</div>
+<div class="bar"><div class="progress" style="width:80%"></div></div>
+</div>
 
+<div class="skill">
+<div class="skill-name">AutoCAD</div>
+<div class="bar"><div class="progress" style="width:75%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-name">CNC Programming</div>
+<div class="bar"><div class="progress" style="width:70%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-name">Manufacturing Processes</div>
+<div class="bar"><div class="progress" style="width:72%"></div></div>
 </div>
 
 </div>
-
 
 
 <div class="card contact">
@@ -182,25 +226,20 @@ Designed and developed a racing go-kart including chassis design, drivetrain int
 
 <p>
 <b>LinkedIn:</b><br>
-
 <a href="https://www.linkedin.com/in/avanish15" target="_blank">
 linkedin.com/in/avanish15
 </a>
-
 </p>
 
 </div>
 
-
 </div>
-
 
 <footer>
 
 © 2026 Avanish | Mechanical Engineering Portfolio
 
 </footer>
-
 
 </body>
 </html>
