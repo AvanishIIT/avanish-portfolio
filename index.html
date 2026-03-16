@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Avanish | Mechanical Engineer</title>
 
 <style>
@@ -10,19 +12,17 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial, Helvetica, sans-serif;
 }
 
-/* LIGHT + DARK BACKGROUND */
+/* BACKGROUND THEME */
 
 body{
-background:linear-gradient(135deg,#f1f5f9,#cbd5f5,#1e293b,#020617);
+background:linear-gradient(135deg,#f1f5f9,#e2e8f0,#1e293b,#020617);
 background-size:400% 400%;
 animation:gradientMove 12s ease infinite;
-color:white;
+color:#0f172a;
 }
-
-/* GRADIENT ANIMATION */
 
 @keyframes gradientMove{
 0%{background-position:0% 50%;}
@@ -30,7 +30,7 @@ color:white;
 100%{background-position:0% 50%;}
 }
 
-/* FLOATING PARTICLES */
+/* GLOW EFFECT */
 
 body::before{
 content:"";
@@ -42,6 +42,7 @@ top:-150px;
 left:-150px;
 opacity:0.25;
 filter:blur(120px);
+z-index:-1;
 }
 
 body::after{
@@ -54,6 +55,7 @@ bottom:-150px;
 right:-150px;
 opacity:0.25;
 filter:blur(120px);
+z-index:-1;
 }
 
 /* NAVBAR */
@@ -63,26 +65,27 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 80px;
-background:rgba(2,6,23,0.8);
+background:rgba(255,255,255,0.4);
 backdrop-filter:blur(10px);
 position:sticky;
 top:0;
 }
 
 nav h2{
-color:#38bdf8;
+color:#0284c7;
 }
 
 nav a{
-color:#e2e8f0;
 text-decoration:none;
+color:#0f172a;
 margin-left:25px;
 font-size:15px;
-transition:.3s;
+font-weight:500;
+transition:0.3s;
 }
 
 nav a:hover{
-color:#38bdf8;
+color:#0284c7;
 }
 
 /* HERO */
@@ -99,12 +102,12 @@ text-align:center;
 .hero h1{
 font-size:55px;
 margin-bottom:10px;
-color:white;
+color:#020617;
 }
 
 .hero p{
-color:#cbd5f5;
 font-size:18px;
+color:#334155;
 }
 
 /* BUTTON */
@@ -121,30 +124,48 @@ transition:.3s;
 }
 
 .btn:hover{
-transform:scale(1.08);
 background:#0ea5e9;
+transform:scale(1.05);
 }
 
-/* SECTION */
+/* SECTIONS */
 
 .section{
 padding:70px 120px;
 }
 
-/* GLASS CARDS */
+.section h2{
+margin-bottom:25px;
+color:#0f172a;
+}
 
-.project,
-.about,
-.contact{
-background:rgba(255,255,255,0.08);
+/* ABOUT */
+
+.about{
+max-width:800px;
+line-height:1.6;
+color:#1e293b;
+}
+
+/* PROJECT */
+
+.project{
+background:rgba(255,255,255,0.4);
 backdrop-filter:blur(12px);
 padding:25px;
 border-radius:10px;
-transition:.3s;
+transition:0.3s;
+color:#0f172a;
 }
 
 .project:hover{
 transform:translateY(-6px);
+}
+
+.project img{
+width:100%;
+border-radius:8px;
+margin-top:15px;
 }
 
 /* SKILLS */
@@ -155,7 +176,7 @@ margin-bottom:20px;
 
 .bar{
 height:10px;
-background:#94a3b8;
+background:#cbd5f5;
 border-radius:6px;
 }
 
@@ -167,8 +188,16 @@ border-radius:6px;
 
 /* CONTACT */
 
+.contact{
+color:#0f172a;
+}
+
+.contact p{
+margin:8px 0;
+}
+
 .contact a{
-color:#38bdf8;
+color:#0284c7;
 text-decoration:none;
 }
 
@@ -177,9 +206,9 @@ text-decoration:none;
 footer{
 text-align:center;
 padding:25px;
-background:rgba(2,6,23,0.8);
+background:rgba(255,255,255,0.4);
 margin-top:50px;
-color:#cbd5f5;
+color:#1e293b;
 }
 
 </style>
@@ -188,63 +217,78 @@ color:#cbd5f5;
 
 <body>
 
-<div class="gear">⚙️</div>
+<nav>
 
-<header>
+<h2>Avanish</h2>
+
+<div>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+
+<section class="hero">
 
 <h1>Avanish</h1>
 
-<p>Mechanical Engineering Student | Automotive & Design Enthusiast</p>
+<p>Mechanical Engineering Student | Automotive Enthusiast</p>
 
-<a class="button"
+<a class="btn"
 href="https://www.linkedin.com/in/avanish15"
 target="_blank">
 LinkedIn
 </a>
 
-<a class="button"
+<a class="btn"
 href="resume.pdf"
 download>
 Download Resume
 </a>
 
-</header>
+</section>
 
 
-<div class="container">
-
-<div class="card">
+<section id="about" class="section">
 
 <h2>About Me</h2>
 
-<p>
+<p class="about">
+
 I am Avanish, a Mechanical Engineering student at Coimbatore Institute of Technology with a strong interest in automotive engineering, mechanical design and manufacturing systems.
+
+I enjoy working on practical engineering projects and developing innovative mechanical systems. I have worked on designing and building a go-kart focusing on chassis design, drivetrain integration and braking systems.
+
 </p>
 
+</section>
+
+
+<section id="projects" class="section">
+
+<h2>Project</h2>
+
+<div class="project">
+
+<h3>Go-Kart Design & Fabrication</h3>
+
 <p>
-I enjoy building practical engineering systems and solving real mechanical problems. My experience includes designing and fabricating a go-kart focusing on chassis design, drivetrain integration and braking systems.
+
+Designed and fabricated a racing go-kart including chassis structure, drivetrain integration and braking configuration. The project focused on lightweight design, safety and performance.
+
 </p>
+
+<img src="https://images.unsplash.com/photo-1627496892357-9e1a2e59954e">
 
 </div>
 
+</section>
 
 
-<div class="card">
-
-<h2>Go-Kart Project</h2>
-
-<p>
-Designed and fabricated a racing go-kart including chassis design, drivetrain integration and braking configuration. The project focused on lightweight structure, safety and performance.
-</p>
-
-<img class="kart"
-src="https://images.unsplash.com/photo-1627496892357-9e1a2e59954e">
-
-</div>
-
-
-
-<div class="card">
+<section id="skills" class="section">
 
 <h2>Skills</h2>
 
@@ -273,11 +317,10 @@ Manufacturing Processes
 <div class="bar"><div class="progress" style="width:72%"></div></div>
 </div>
 
-</div>
+</section>
 
 
-
-<div class="card contact">
+<section id="contact" class="section contact">
 
 <h2>Contact</h2>
 
@@ -286,15 +329,13 @@ Manufacturing Processes
 <p><b>Email:</b> 71762302072@cit.edu.in</p>
 
 <p>
-<b>LinkedIn:</b><br>
+<b>LinkedIn:</b>
 <a href="https://www.linkedin.com/in/avanish15" target="_blank">
 linkedin.com/in/avanish15
 </a>
 </p>
 
-</div>
-
-</div>
+</section>
 
 
 <footer>
