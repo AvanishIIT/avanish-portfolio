@@ -4,9 +4,12 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Avanish | Mechanical Engineer</title>
 
 <style>
+
+/* GLOBAL */
 
 *{
 margin:0;
@@ -15,47 +18,19 @@ box-sizing:border-box;
 font-family:Arial, Helvetica, sans-serif;
 }
 
-/* BACKGROUND THEME */
+/* BACKGROUND */
 
 body{
 background:linear-gradient(135deg,#f1f5f9,#e2e8f0,#1e293b,#020617);
 background-size:400% 400%;
-animation:gradientMove 12s ease infinite;
+animation:bgmove 12s ease infinite;
 color:#0f172a;
 }
 
-@keyframes gradientMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-/* GLOW EFFECT */
-
-body::before{
-content:"";
-position:fixed;
-width:500px;
-height:500px;
-background:radial-gradient(circle,#38bdf8,transparent);
-top:-150px;
-left:-150px;
-opacity:0.25;
-filter:blur(120px);
-z-index:-1;
-}
-
-body::after{
-content:"";
-position:fixed;
-width:500px;
-height:500px;
-background:radial-gradient(circle,#6366f1,transparent);
-bottom:-150px;
-right:-150px;
-opacity:0.25;
-filter:blur(120px);
-z-index:-1;
+@keyframes bgmove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
 /* NAVBAR */
@@ -75,17 +50,22 @@ nav h2{
 color:#0284c7;
 }
 
-nav a{
+/* NAV LINKS */
+
+.nav-links a{
 text-decoration:none;
 color:#0f172a;
 margin-left:25px;
 font-size:15px;
 font-weight:500;
-transition:0.3s;
 }
 
-nav a:hover{
-color:#0284c7;
+/* HAMBURGER */
+
+.menu-icon{
+font-size:28px;
+cursor:pointer;
+display:none;
 }
 
 /* HERO */
@@ -102,7 +82,6 @@ text-align:center;
 .hero h1{
 font-size:55px;
 margin-bottom:10px;
-color:#020617;
 }
 
 .hero p{
@@ -136,30 +115,16 @@ padding:70px 120px;
 
 .section h2{
 margin-bottom:25px;
-color:#0f172a;
 }
 
-/* ABOUT */
-
-.about{
-max-width:800px;
-line-height:1.6;
-color:#1e293b;
-}
-
-/* PROJECT */
+/* CARD STYLE */
 
 .project{
 background:rgba(255,255,255,0.4);
 backdrop-filter:blur(12px);
 padding:25px;
 border-radius:10px;
-transition:0.3s;
-color:#0f172a;
-}
-
-.project:hover{
-transform:translateY(-6px);
+margin-bottom:25px;
 }
 
 .project img{
@@ -188,14 +153,6 @@ border-radius:6px;
 
 /* CONTACT */
 
-.contact{
-color:#0f172a;
-}
-
-.contact p{
-margin:8px 0;
-}
-
 .contact a{
 color:#0284c7;
 text-decoration:none;
@@ -208,62 +165,61 @@ text-align:center;
 padding:25px;
 background:rgba(255,255,255,0.4);
 margin-top:50px;
-color:#1e293b;
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE */
 
-@media (max-width: 768px){
+@media (max-width:768px){
 
 nav{
-flex-direction:column;
-align-items:flex-start;
 padding:20px;
 }
 
-nav div{
-margin-top:10px;
+.menu-icon{
+display:block;
 }
 
-nav a{
-display:inline-block;
-margin:8px 10px 0 0;
+.nav-links{
+display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:white;
+padding:20px;
+}
+
+.nav-links a{
+margin:10px 0;
+display:block;
 }
 
 .hero h1{
 font-size:34px;
 }
 
-.hero p{
-font-size:16px;
-}
-
 .section{
 padding:40px 20px;
 }
 
-.project img{
-width:100%;
-height:auto;
 }
 
-.about{
-max-width:100%;
-}
-
-}
-  
 </style>
 
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
 
 <h2>Avanish</h2>
 
-<div>
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+<div class="nav-links" id="navLinks">
 <a href="#about">About</a>
 <a href="#projects">Projects</a>
 <a href="#internship">Internship</a>
@@ -274,41 +230,38 @@ max-width:100%;
 
 </nav>
 
+
+<!-- HERO -->
+
 <section class="hero">
 
 <h1>Avanish</h1>
 
 <p>Mechanical Engineering Student | Automotive & Design Enthusiast</p>
 
-<a class="btn"
-href="https://www.linkedin.com/in/avanish15"
-target="_blank">
-LinkedIn
-</a>
-
-<a class="btn"
-href="resume.pdf"
-download>
-Download Resume
-</a>
+<a class="btn" href="https://www.linkedin.com/in/avanish15" target="_blank">LinkedIn</a>
 
 </section>
 
+
+<!-- ABOUT -->
 
 <section id="about" class="section">
 
 <h2>About Me</h2>
 
-<p class="about">
+<p>
 
 I am Avanish, a Mechanical Engineering student at Coimbatore Institute of Technology with a strong interest in automotive engineering, mechanical design and manufacturing systems.
 
-I enjoy working on practical engineering projects and developing innovative mechanical systems. I have worked on designing and building a go-kart focusing on chassis design, drivetrain integration and braking systems.
+I enjoy working on practical engineering projects and developing innovative mechanical systems.
 
 </p>
 
 </section>
 
+
+<!-- PROJECTS -->
 
 <section id="projects" class="section">
 
@@ -316,13 +269,12 @@ I enjoy working on practical engineering projects and developing innovative mech
 
 <div class="project">
 
-<h3>Go-Kart Design & Fabrication</h3>
+<h3>Go-Kart Braking System Design</h3>
 
 <p>
-Part of the braking system design team in the go-kart project. We designed and analyzed a hydraulic 
-double braking system to improve safety and reliability. The system ensures that if one brake circuit 
-fails, the second braking mechanism continues to operate, maintaining control of the kart. The design 
-focused on braking efficiency, safety, and performance during high-speed operation.
+Part of the braking team in the go-kart project. Designed and analyzed a hydraulic
+double braking system so that if one braking circuit fails the other will still work,
+improving safety and reliability.
 </p>
 
 <img src="https://images.unsplash.com/photo-1627496892357-9e1a2e59954e">
@@ -330,90 +282,78 @@ focused on braking efficiency, safety, and performance during high-speed operati
 </div>
 
 
-<br><br>
-
-
 <div class="project">
 
 <h3>Smart Non-Invasive Load Monitoring System for Cranes</h3>
 
 <p>
-Designed a non-invasive IoT-based system to measure crane load using sensor data without modifying 
-the crane structure. The system includes an automatic logging feature that records load values, 
-time, and location data to improve operational safety and monitoring. This approach enables real-time 
-load tracking while maintaining the structural integrity of the crane.
+Designed a non-invasive IoT-based system to measure crane load using sensor data
+without modifying the crane structure. Developed automatic logging of load, time,
+and location for safety monitoring.
 </p>
 
 </div>
 
-<br><br>
-  
-<div class="project">
-
-<h3>Design and Development of a Low-Cost Moisture-Proof Grain Storage Silo for Small Farmers</h3>
-
-<p>
-Designed and assembled an agricultural grain storage silo for a TANCAM project team. 
-The silo was developed to provide safe, low-cost, and pest-resistant grain storage 
-for small and marginal farmers. The design focused on moisture protection, structural 
-reliability, thermal insulation, and efficient grain discharge using industry-feasible 
-materials and manufacturing methods. The project team received a Special Prize for 
-their design, and I was responsible for the silo design and assembly.
-</p>
-
-</div>
-
-<br><br>
 
 <div class="project">
 
-<h3>V6 Engine Design – Junior Design Engineer Course</h3>
+<h3>Low-Cost Moisture-Proof Grain Storage Silo</h3>
 
 <p>
-Designed a complete V6 internal combustion engine as part of the Junior Design Engineer course. 
-The project involved developing the engine layout, cylinder configuration, crankshaft arrangement, 
-and major engine components using CAD design principles. The design focused on proper component 
-integration, mechanical functionality, and understanding of engine architecture used in modern 
-automotive systems.
+Designed and assembled an agricultural silo for a TANCAM project team. The design
+focused on moisture protection, structural reliability, and efficient grain discharge.
+The project received a Special Prize for the design.
 </p>
 
 </div>
-  
+
+
+<div class="project">
+
+<h3>V6 Engine Design</h3>
+
+<p>
+Designed a V6 internal combustion engine as part of the Junior Design Engineer
+course, focusing on engine architecture, crankshaft arrangement, and CAD modelling.
+</p>
+
+</div>
+
 </section>
+
+
+<!-- INTERNSHIP -->
 
 <section id="internship" class="section">
 
-<h2>Internship & Industrial Training</h2>
+<h2>Internship</h2>
 
 <div class="project">
 
 <h3>Industrial Training – Salem Steel Plant</h3>
 
 <p>
-Completed industrial training on steel production and processing at Salem Steel Plant. 
-Gained practical exposure to steel manufacturing processes including rolling, annealing, 
-and finishing operations. Observed industrial machinery, quality control procedures, 
-and maintenance practices which improved understanding of large-scale production systems.
+Gained exposure to steel production including rolling, annealing, and finishing
+operations while observing industrial machinery and quality control systems.
 </p>
 
 </div>
-
-<br><br>
 
 <div class="project">
 
 <h3>Industrial Visit – Kannan Tools and Dies</h3>
 
 <p>
-Observed the design and manufacturing process of precision tools, dies, and moulds 
-used in industrial applications. Gained insights into CNC machining processes, 
-quality inspection methods, and tool maintenance techniques used in modern 
-manufacturing industries.
+Observed the design and manufacturing of precision tools, dies, and moulds and
+learned about CNC machining and inspection techniques.
 </p>
 
 </div>
 
 </section>
+
+
+<!-- CERTIFICATES -->
 
 <section id="certificates" class="section">
 
@@ -423,14 +363,10 @@ manufacturing industries.
 
 <ul>
 
-<li>Internship Training at SAIL – Salem Steel Plant</li>
-
-<li>AutoCAD Level 1 & Level 2 Certification</li>
-
+<li>Internship Training – SAIL Salem Steel Plant</li>
+<li>AutoCAD Level 1 & Level 2</li>
 <li>Junior Design Engineer (SolidWorks) – Ongoing</li>
-
-<li>One Day Workshop on SolidWorks – NIT Trichy</li>
-
+<li>SolidWorks Workshop – NIT Trichy</li>
 <li>Advanced Python Programming – NPTEL</li>
 
 </ul>
@@ -438,6 +374,9 @@ manufacturing industries.
 </div>
 
 </section>
+
+
+<!-- SKILLS -->
 
 <section id="skills" class="section">
 
@@ -463,10 +402,10 @@ CNC Programming
 <div class="bar"><div class="progress" style="width:70%"></div></div>
 </div>
 
-<div class="skill">
-Manufacturing Processes
-<div class="bar"><div class="progress" style="width:72%"></div></div>
-</div>
+</section>
+
+
+<!-- CONTACT -->
 
 <section id="contact" class="section contact">
 
@@ -474,7 +413,8 @@ Manufacturing Processes
 
 <p><b>Phone:</b> +91 8946093721</p>
 
-<p><b>Email:</b> 
+<p>
+<b>Email:</b>
 <a href="mailto:71762302072@cit.edu.in">
 71762302072@cit.edu.in
 </a>
@@ -495,6 +435,24 @@ linkedin.com/in/avanish15
 © 2026 Avanish | Mechanical Engineering Portfolio
 
 </footer>
+
+
+<script>
+
+function toggleMenu(){
+
+var menu=document.getElementById("navLinks");
+
+if(menu.style.display==="flex"){
+menu.style.display="none";
+}
+else{
+menu.style.display="flex";
+}
+
+}
+
+</script>
 
 </body>
 </html>
